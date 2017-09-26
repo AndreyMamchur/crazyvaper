@@ -12,13 +12,8 @@ public class Goods {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-    private String color;
     private double price;
-    private String producer;
-    private boolean availability;
 
-    public Goods() {
-    }
 
     public int getId() {
         return id;
@@ -36,14 +31,6 @@ public class Goods {
         this.name = name;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -52,31 +39,4 @@ public class Goods {
         this.price = price;
     }
 
-    public String getProducer() {
-        return producer;
-    }
-
-    public void setProducer(String producer) {
-        this.producer = producer;
-    }
-
-    public boolean isAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(boolean availability) {
-        this.availability = availability;
-    }
-
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", color='" + color + '\'' +
-                ", price=" + price +
-                ", producer='" + producer + '\'' +
-                ", availability=" + availability +
-                '}';
-    }
 }

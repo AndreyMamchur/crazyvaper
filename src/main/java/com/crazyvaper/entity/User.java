@@ -1,22 +1,29 @@
 package com.crazyvaper.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import net.bytebuddy.implementation.bind.annotation.Default;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 import javax.persistence.Id;
+import java.util.List;
 
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
     private String name;
     private String email;
-    private String password;
-    private Character character;
+    private int age;
     private String phoneNumber;
-    private String address;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    private String password;
+    @Type(type="true_false")
+
+    private boolean login;
 
     public User() {
     }
@@ -45,20 +52,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public int getAge() {
+        return age;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Character getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(Character character) {
-        this.character = character;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getPhoneNumber() {
@@ -69,12 +68,28 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getAddress() {
-        return address;
+    public Role getRole() {
+        return role;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getLogin() {
+        return login;
+    }
+
+    public void setLogin(Boolean login) {
+        this.login = login;
     }
 
     @Override
@@ -83,10 +98,11 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", character=" + character +
+                ", age=" + age +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", address='" + address + '\'' +
+                ", role=" + role +
+                ", password='" + password + '\'' +
+                ", login=" + login +
                 '}';
     }
 }

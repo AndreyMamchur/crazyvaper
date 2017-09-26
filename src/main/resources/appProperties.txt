@@ -1,0 +1,4 @@
+DBConnectionString=jdbc:mysql://localhost:3306/crazyvaper?userSll=false&createDatabaseIfNotExist=true
+userName=root
+password=root
+driverClassName=com.mysql.jdbc.Driver
