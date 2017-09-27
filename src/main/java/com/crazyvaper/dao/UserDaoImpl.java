@@ -20,9 +20,9 @@ public class UserDaoImpl implements UserDao {
 //        if (user.getLogin() == null){
 //            user.setLogin(false);
 //        }
-        if (user.getRole() == null){
-            user.setRole(Role.USER);
-        }
+//        if (user.getRole() == null){
+//            user.setRole(Role.USER);
+//        }
         entityManager.persist(user);
     }
 

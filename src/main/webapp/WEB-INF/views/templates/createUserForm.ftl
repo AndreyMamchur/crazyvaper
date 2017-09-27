@@ -1,10 +1,16 @@
 <form action="/newUser" method="post" name="user" class="form-group">
     <p>Name</p>
-    <input title="Name" type="text" name="name"/>
+    <input title="Name" type="text" name="name" required/>
     <p>Email</p>
-    <input title="Email" type="text" name="email"/>
+    <input title="Email" type="email" name="email" required/>
+    <p>Password</p>
+    <input title="Password" type="password" name="password" required/>
+    <p>Phone Number</p>
+    <input title="Phone Number" type="text" name="phoneNumber"/>
     <p>Age</p>
     <input title="Age" type="number" name="age"/>
+    <p>Role</p>
+    <input title="Role" type="text" name="role"/>
     <input type="submit" title="OK" value="OK!"/>
 </form>
 

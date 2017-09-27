@@ -30,7 +30,7 @@
             <td><#if user.phoneNumber??>${user.phoneNumber}<#else> </#if></td>
             <td><#if user.role??>${user.role}<#else> </#if></td>
             <td><#if user.password??>${user.password}<#else> </#if></td>
-            <td><#if user.login??>${user.login}<#else> </#if></td>
+            <td><#if user.login??>${user.login?c}<#else> </#if></td>
             <td><a href="/delete/${user.id}">Delete</a>
                 <a href="/edit/${user.id}">Edit</a>
             </td>
@@ -38,6 +38,6 @@
     </#list>
     </table>
 <#--</div>-->
-<#--<#include "templates/createUserForm.ftl"/>-->
+<#include "templates/createUserForm.ftl"/>
 </body>
 </html>

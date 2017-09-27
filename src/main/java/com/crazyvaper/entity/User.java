@@ -1,6 +1,7 @@
 package com.crazyvaper.entity;
 
 import net.bytebuddy.implementation.bind.annotation.Default;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -14,14 +15,21 @@ public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String email;
+
     private int age;
+
+    @ColumnDefault(value = " ")
     private String phoneNumber;
-    @Enumerated(EnumType.STRING)
+
     private Role role;
+
     private String password;
-    @Type(type="true_false")
 
     private boolean login;
 
@@ -56,6 +64,7 @@ public class User {
         return age;
     }
 
+    @ColumnDefault(value = "1")
     public void setAge(int age) {
         this.age = age;
     }
@@ -72,6 +81,8 @@ public class User {
         return role;
     }
 
+    @Enumerated(EnumType.STRING)
+    @ColumnDefault(value = "Role.USER")
     public void setRole(Role role) {
         this.role = role;
     }
@@ -80,6 +91,7 @@ public class User {
         return password;
     }
 
+    @Column(nullable = false)
     public void setPassword(String password) {
         this.password = password;
     }
@@ -88,6 +100,8 @@ public class User {
         return login;
     }
 
+    @Type(type="true_false")
+    @ColumnDefault(value = "false")
     public void setLogin(Boolean login) {
         this.login = login;
     }

@@ -1,6 +1,7 @@
 package com.crazyvaper.entity;
 
 import javax.persistence.*;
+import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.List;
 
 @Entity
@@ -11,10 +12,13 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "payment_id")
     private int id;
+
     @Column(name = "user_id")
-    private int userId;
+    private long userId;
+
     @Enumerated(EnumType.STRING)
     private Status status;
+
     @OneToMany(fetch = FetchType.EAGER)
     private List<Goods> paymentList;
 
@@ -24,14 +28,6 @@ public class Payment {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public Status getStatus() {
@@ -50,13 +46,4 @@ public class Payment {
         this.paymentList = paymentList;
     }
 
-    @Override
-    public String toString() {
-        return "Payment{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", status=" + status +
-                ", paymentList=" + paymentList +
-                '}';
-    }
 }
