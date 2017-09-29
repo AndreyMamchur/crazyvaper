@@ -15,30 +15,26 @@
         </tr>
         <tr>
             <td>Name</td>
-            <td> <#if user.name??>${user.name}<#else> </#if></td>
+            <td>${user.name}</td>
         </tr>
         <tr>
             <td>Email</td>
-            <td><#if user.email??>${user.email}<#else> </#if></td>
+            <td>${user.email}</td>
         </tr>
-        <td>Age</td>
-        <td><#if user.age??>${user.age}<#else> </#if></td>
+        <td>Date Of Birth</td>
+        <td><#if user.dateOfBirth??>${user.dateOfBirth}<#else> </#if></td>
         </tr>
         <tr>
             <td>Phone Number</td>
-            <td><#if user.phoneNumber??>${user.phoneNumber}<#else> </#if></td>
+            <td>${user.phoneNumber}</td>
         </tr>
         <tr>
             <td>Role</td>
-            <td><#if user.role??>${user.role}<#else> </#if></td>
+            <td>${user.role}</td>
         </tr>
         <tr>
             <td>Password</td>
-            <td><#if user.password??>${user.password}<#else> </#if></td>
-        </tr>
-        <tr>
-            <td>Login</td>
-            <td><#if user.login??>${user.login}<#else> </#if></td>
+            <td>${user.password}</td>
         </tr>
     </table>
 </div>

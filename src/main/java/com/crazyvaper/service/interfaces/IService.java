@@ -1,20 +1,19 @@
 package com.crazyvaper.service.interfaces;
 
-import java.util.List;
+import java.util.Collection;
 
 public interface IService<T> {
 
-    void save(T entity);
+    void save(T emtity);
 
     T getById(int id);
 
     T getByName(String name);
 
-    T update(T entity);
+    void update(T entity);
 
-    List<T> getAll();
+    Collection<T> getAll();
 
     void delete(int id);
 
-    void delete(String name);
 }

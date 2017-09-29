@@ -9,28 +9,10 @@ import com.crazyvaper.service.GoodsServiceImpl;
 import com.crazyvaper.service.interfaces.UserService;
 import com.crazyvaper.service.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ComponentScan(basePackages = {"com.crazyvaper.dao", "com.crazyvaper.service"})
 public class SpringConfig {
-
-    @Bean
-    public UserService getUserService(){
-        return new UserServiceImpl();
-    }
-
-    @Bean
-    public UserDao getUserDao(){
-        return new UserDaoImpl();
-    }
-
-    @Bean
-    public GoodsService getGoodsService() {
-        return new GoodsServiceImpl();
-    }
-
-    @Bean
-    public GoodsDao getGoodsDao() {
-        return new GoodsDaoImpl();
-    }
 }

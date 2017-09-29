@@ -1,19 +1,18 @@
 package com.crazyvaper.dao.interfaces;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface IDAO<T> {
     void save(T emtity);
 
-    T getUserById(int id);
+    T getById(int id);
 
-    T getUserByName(String name);
+    T getByName(String name);
 
-    T update(T entity);
+    void update(T entity);
 
-    List<T> getAll();
+    Collection<T> getAll();
 
-    void delete(int id);
-
-    void delete(String name);
+    void delete(T entity);
 }

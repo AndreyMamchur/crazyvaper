@@ -2,39 +2,35 @@ package com.crazyvaper.dao;
 
 import com.crazyvaper.dao.interfaces.UserDao;
 import com.crazyvaper.entity.User;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Collection;
 import java.util.List;
 
+@Repository
 public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-
     @Override
     @Transactional
-    public void save(User user) {
-//        if (user.getLogin() == null){
-//            user.setLogin(false);
-//        }
-//        if (user.getRole() == null){
-//            user.setRole(Role.USER);
-//        }
-        entityManager.persist(user);
+    public void save(User emtity) {
+        entityManager.persist(emtity);
     }
 
     @Override
-    public User getUserById(int id) {
+    public User getById(int id) {
         return entityManager.createQuery("SELECT u FROM User u WHERE id=:id", User.class)
                 .setParameter("id", id)
                 .getSingleResult();
     }
 
     @Override
-    public User getUserByName(String name) {
+    public User getByName(String name) {
         return entityManager.createQuery("SELECT u FROM User u WHERE name=:name", User.class)
                 .setParameter("name", name)
                 .getSingleResult();
@@ -42,8 +38,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     @Transactional
-    public User update(User newUser) {
-        return entityManager.merge(newUser);
+    public void update(User entity) {
+        entityManager.merge(entity);
     }
 
     @Override
@@ -52,14 +48,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    @Transactional
-    public void delete(int id) {
-        entityManager.remove(getUserById(id));
+    public void delete(User entity) {
+        entityManager.remove(entity);
     }
 
-    @Override
-    @Transactional
-    public void delete(String name) {
-        entityManager.remove(getUserByName(name));
-    }
 }

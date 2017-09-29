@@ -6,6 +6,8 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.persistence.Id;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,8 +15,9 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "user_id", nullable = false)
+    private long id;
 
     @Column(nullable = false)
     private String name;
@@ -22,31 +25,28 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    @ColumnDefault(value = "1")
-    private int age;
+    private String dateOfBirth;
 
-    @ColumnDefault(value = " ")
-    private String phoneNumber;
+    private String phoneNumber = "";
 
     @Enumerated(EnumType.STRING)
-    @ColumnDefault(value = "Role.USER")
-    private Role role;
+    private Role role = Role.USER;
 
     @Column(nullable = false)
     private String password;
 
-    @Type(type="true_false")
-    @ColumnDefault(value = "false")
-    private boolean login;
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Payment.class)
+    @JoinColumn(name = "customer_id")
+    private List<Payment> payments = new ArrayList<>();
 
     public User() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -66,12 +66,12 @@ public class User {
         this.email = email;
     }
 
-    public int getAge() {
-        return age;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getPhoneNumber() {
@@ -98,25 +98,11 @@ public class User {
         this.password = password;
     }
 
-    public Boolean getLogin() {
-        return login;
+    public List<Payment> getPayments() {
+        return payments;
     }
 
-    public void setLogin(Boolean login) {
-        this.login = login;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", age=" + age +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", role=" + role +
-                ", password='" + password + '\'' +
-                ", login=" + login +
-                '}';
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
     }
 }

@@ -24,13 +24,12 @@
     <#list users as user>
         <tr>
             <td><a href="/user/${user.id}">${user.id}</a></td>
-            <td><#if user.name??>${user.name}<#else> </#if></td>
-            <td><#if user.email??>${user.email}<#else> </#if></td>
-            <td><#if user.age??>${user.age}<#else> </#if></td>
-            <td><#if user.phoneNumber??>${user.phoneNumber}<#else> </#if></td>
-            <td><#if user.role??>${user.role}<#else> </#if></td>
-            <td><#if user.password??>${user.password}<#else> </#if></td>
-            <td><#if user.login??>${user.login?c}<#else> </#if></td>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td><#if user.dateOfBirth??>${user.dateOfBirth}<#else> </#if></td>
+            <td>${user.phoneNumber}</td>
+            <td>${user.role}</td>
+            <td>${user.password}</td>
             <td><a href="/delete/${user.id}">Delete</a>
                 <a href="/edit/${user.id}">Edit</a>
             </td>

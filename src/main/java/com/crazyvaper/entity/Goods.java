@@ -1,25 +1,26 @@
 package com.crazyvaper.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "goods")
 public class Goods {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "goods_id", nullable = false)
+    private long id;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private double price;
 
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -38,5 +39,4 @@ public class Goods {
     public void setPrice(double price) {
         this.price = price;
     }
-
 }

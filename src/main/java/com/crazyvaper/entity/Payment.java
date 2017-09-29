@@ -2,6 +2,7 @@ package com.crazyvaper.entity;
 
 import javax.persistence.*;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -9,25 +10,47 @@ import java.util.List;
 public class Payment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "payment_id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "payment_id", nullable = false)
+    private long id;
 
-    @Column(name = "user_id")
-    private long userId;
+//    @ManyToOne(fetch = FetchType.EAGER, targetEntity = User.class)
+//    @Column(name = "customer_id")
+    @ManyToOne(targetEntity = User.class)
+    private User customer;
+
+    private Timestamp time;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    @Column(name = "status", nullable = false)
+    private Status status = Status.WORKING;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Goods> paymentList;
+    @OneToOne(targetEntity = Basket.class)
+//    @Column(name = "basket_id")
+    private Basket basket;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
+    }
+
+    public User getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(User customer) {
+        this.customer = customer;
+    }
+
+    public Timestamp getTime() {
+        return time;
+    }
+
+    public void setTime(Timestamp time) {
+        this.time = time;
     }
 
     public Status getStatus() {
@@ -38,12 +61,11 @@ public class Payment {
         this.status = status;
     }
 
-    public List<Goods> getPaymentList() {
-        return paymentList;
+    public Basket getBasket() {
+        return basket;
     }
 
-    public void setPaymentList(List<Goods> paymentList) {
-        this.paymentList = paymentList;
+    public void setBasket(Basket basket) {
+        this.basket = basket;
     }
-
 }

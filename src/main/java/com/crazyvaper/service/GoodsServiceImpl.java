@@ -6,6 +6,7 @@ import com.crazyvaper.service.interfaces.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -15,38 +16,32 @@ public class GoodsServiceImpl implements GoodsService {
     private GoodsDao goodsDao;
 
     @Override
+    public void save(Goods emtity) {
+        goodsDao.save(emtity);
+    }
+
+    @Override
     public Goods getById(int id) {
-        return goodsDao.getGoodsById(id);
+        return goodsDao.getById(id);
     }
 
     @Override
     public Goods getByName(String name) {
-        return goodsDao.getGoodsByName(name);
+        return goodsDao.getByName(name);
     }
 
     @Override
-    public List<Goods> getAll() {
+    public void update(Goods entity) {
+        goodsDao.update(entity);
+    }
+
+    @Override
+    public Collection<Goods> getAll() {
         return goodsDao.getAll();
     }
 
     @Override
-    public void save(Goods goods) {
-        goodsDao.save(goods);
-    }
-
-    @Override
     public void delete(int id) {
-        goodsDao.delete(id);
+        goodsDao.delete(goodsDao.getById(id));
     }
-
-    @Override
-    public void delete(String name) {
-
-    }
-
-    @Override
-    public Goods update(Goods goods) {
-        return goodsDao.update(goods);
-    }
-
 }
