@@ -1,7 +1,8 @@
 package com.crazyvaper.service;
 
-import com.crazyvaper.dao.UserDao;
+import com.crazyvaper.dao.interfaces.UserDao;
 import com.crazyvaper.entity.User;
+import com.crazyvaper.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

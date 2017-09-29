@@ -2,7 +2,7 @@ package com.crazyvaper.controller;
 
 
 import com.crazyvaper.entity.Goods;
-import com.crazyvaper.service.GoodsService;
+import com.crazyvaper.service.interfaces.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

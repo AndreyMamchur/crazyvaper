@@ -1,6 +1,6 @@
 package com.crazyvaper.dao;
 
-import com.crazyvaper.entity.Role;
+import com.crazyvaper.dao.interfaces.UserDao;
 import com.crazyvaper.entity.User;
 import org.springframework.transaction.annotation.Transactional;
 

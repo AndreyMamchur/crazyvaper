@@ -1,5 +1,6 @@
 package com.crazyvaper.dao;
 
+import com.crazyvaper.dao.interfaces.GoodsDao;
 import com.crazyvaper.entity.Goods;
 import org.springframework.transaction.annotation.Transactional;
 

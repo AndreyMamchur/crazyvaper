@@ -22,15 +22,21 @@ public class User {
     @Column(nullable = false)
     private String email;
 
+    @ColumnDefault(value = "1")
     private int age;
 
     @ColumnDefault(value = " ")
     private String phoneNumber;
 
+    @Enumerated(EnumType.STRING)
+    @ColumnDefault(value = "Role.USER")
     private Role role;
 
+    @Column(nullable = false)
     private String password;
 
+    @Type(type="true_false")
+    @ColumnDefault(value = "false")
     private boolean login;
 
     public User() {
@@ -64,7 +70,6 @@ public class User {
         return age;
     }
 
-    @ColumnDefault(value = "1")
     public void setAge(int age) {
         this.age = age;
     }
@@ -81,8 +86,6 @@ public class User {
         return role;
     }
 
-    @Enumerated(EnumType.STRING)
-    @ColumnDefault(value = "Role.USER")
     public void setRole(Role role) {
         this.role = role;
     }
@@ -91,7 +94,6 @@ public class User {
         return password;
     }
 
-    @Column(nullable = false)
     public void setPassword(String password) {
         this.password = password;
     }
@@ -100,8 +102,6 @@ public class User {
         return login;
     }
 
-    @Type(type="true_false")
-    @ColumnDefault(value = "false")
     public void setLogin(Boolean login) {
         this.login = login;
     }

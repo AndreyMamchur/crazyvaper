@@ -1,5 +1,6 @@
 package com.crazyvaper.dao;
 
+import com.crazyvaper.dao.interfaces.PaymentDao;
 import com.crazyvaper.entity.Payment;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -7,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class paymentDaoImpl implements paymentDao {
+public class paymentDaoImpl implements PaymentDao {
 
     @PersistenceContext
     private EntityManager entityManager;

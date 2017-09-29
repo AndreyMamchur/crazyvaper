@@ -1,7 +1,8 @@
 package com.crazyvaper.service;
 
-import com.crazyvaper.dao.GoodsDao;
+import com.crazyvaper.dao.interfaces.GoodsDao;
 import com.crazyvaper.entity.Goods;
+import com.crazyvaper.service.interfaces.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
