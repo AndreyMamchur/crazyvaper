@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body class="container">
+<#include "templates/headerAdministrated.ftl">
 <#include "templates/header.ftl">
 <#--<div class="table-responsive" style="background-color: aqua">-->
 <h1>Users list</h1>
@@ -14,11 +15,10 @@
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Age</th>
+            <th>Date of Birth</th>
             <th>Phone Number</th>
             <th>Role</th>
             <th>password</th>
-            <th>login</th>
             <th>Buttons</th>
         </tr>
     <#list users as user>
@@ -28,7 +28,7 @@
             <td>${user.email}</td>
             <td><#if user.dateOfBirth??>${user.dateOfBirth}<#else> </#if></td>
             <td>${user.phoneNumber}</td>
-            <td>${user.role}</td>
+            <td><#if user.role??>${user.role}<#else> </#if></td>
             <td>${user.password}</td>
             <td><a href="/delete/${user.id}">Delete</a>
                 <a href="/edit/${user.id}">Edit</a>

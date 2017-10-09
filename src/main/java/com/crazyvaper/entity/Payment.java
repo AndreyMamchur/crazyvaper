@@ -1,5 +1,7 @@
 package com.crazyvaper.entity;
 
+import org.springframework.web.bind.annotation.Mapping;
+
 import javax.persistence.*;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.sql.Timestamp;
@@ -14,19 +16,25 @@ public class Payment {
     @Column(name = "payment_id", nullable = false)
     private long id;
 
-//    @ManyToOne(fetch = FetchType.EAGER, targetEntity = User.class)
-//    @Column(name = "customer_id")
-    @ManyToOne(targetEntity = User.class)
-    private User customer;
+    @Column(name = "user_id")
+    private long userId;
 
-    private Timestamp time;
+    @ManyToOne(optional=false)
+    @JoinColumn(name="user_id",referencedColumnName="user_id", insertable = false, updatable = false)
+    private User user;
+
+    @Column(name = "totalPrice", precision = 2)
+    private double totalPrice;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private Status status = Status.WORKING;
 
-    @OneToOne(targetEntity = Basket.class)
-//    @Column(name = "basket_id")
+    @Column(name = "basket_id")
+    private long basketId;
+
+    @OneToOne(optional=false)
+    @JoinColumn(name = "basket_id", referencedColumnName = "basket_id", insertable = false, updatable = false)
     private Basket basket;
 
     public long getId() {
@@ -37,20 +45,28 @@ public class Payment {
         this.id = id;
     }
 
-    public User getCustomer() {
-        return customer;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setCustomer(User customer) {
-        this.customer = customer;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public Timestamp getTime() {
-        return time;
+    public User getUser() {
+        return user;
     }
 
-    public void setTime(Timestamp time) {
-        this.time = time;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public Status getStatus() {

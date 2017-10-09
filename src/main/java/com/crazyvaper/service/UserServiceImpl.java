@@ -6,7 +6,6 @@ import com.crazyvaper.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -21,7 +20,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getById(int id) {
+    public User getById(long id) {
         return userDao.getById(id);
     }
 
@@ -36,12 +35,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Collection<User> getAll() {
+    public List<User> getAll() {
         return userDao.getAll();
     }
 
     @Override
-    public void delete(int id) {
-        userDao.delete(userDao.getById(id));
+    public void delete(long id) {
+        userDao.delete(id);
     }
 }

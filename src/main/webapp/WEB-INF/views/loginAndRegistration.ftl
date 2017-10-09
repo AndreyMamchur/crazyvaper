@@ -5,6 +5,7 @@
     <title>Login</title>
 </head>
 <body>
+<#include "templates/headerAdministrated.ftl">
 <#include "templates/header.ftl">
 <table class="table" id="loginAndRegistration">
     <tr>

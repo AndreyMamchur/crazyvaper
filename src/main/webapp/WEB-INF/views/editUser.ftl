@@ -6,13 +6,14 @@
     <title>UserData</title>
 </head>
 <body class="container">
+<#include "templates/headerAdministrated.ftl">
 <#include "templates/header.ftl">
 
 <form action="/editUser" method="post" name="user" class="form-group">
     <input title="Id" type="hidden" name="id" value="${user.id}"/>
     <input title="Name" type="text" name="name" value="${user.name}"/>
     <input title="Email" type="text" name="email" value="${user.email}"/>
-    <input title="Age" type="number" name="age" <#if user.age??>value="${user.age}"<#else> </#if>/>
+    <input title="Date of Birth" type="text" name="dateOfBirth" <#if user.dateOfBirth??>value="${user.dateOfBirth}"<#else> </#if>/>
     <input title="PhoneNumber" type="text" name="phoneNumber" <#if user.phoneNumber??>value="${user.phoneNumber}"<#else> </#if>/>
     <input title="Role" type="text" name="role" <#if user.role??>value="${user.role}"<#else> </#if>/>
     <input title="Password" type="text" name="password" <#if user.password??>value="${user.password}"<#else> </#if>/>

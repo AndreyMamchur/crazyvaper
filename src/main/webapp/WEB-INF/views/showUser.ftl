@@ -5,6 +5,7 @@
     <title>UserData</title>
 </head>
 <body class="container">
+<#include "templates/headerAdministrated.ftl">
 <#include "templates/header.ftl">
 <div class="table-responsive">
     <caption>User info</caption>

@@ -1,5 +1,6 @@
 package com.crazyvaper.controller;
 
+import com.crazyvaper.entity.Role;
 import com.crazyvaper.entity.User;
 import com.crazyvaper.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
-
     @GetMapping("/user/{id}")
-    public String getUserById(@PathVariable("id") int id, Model model) {
+    public String getUserById(@PathVariable("id") long id, Model model) {
         model.addAttribute("user", userService.getById(id));
         return "showUser";
     }
@@ -33,12 +29,12 @@ public class UserController {
 
     @PostMapping("/newUser")
     public String createUser(@ModelAttribute User user) {
-        userService.save(user);
+        userService.save(validateUser(user));
         return "redirect:users";
     }
 
     @GetMapping("/edit/{id}")
-    public String editPage(@PathVariable("id") int id, Model model) {
+    public String editPage(@PathVariable("id") long id, Model model) {
         System.out.println("id = " + id);
         model.addAttribute("user", userService.getById(id));
         return "editUser";
@@ -51,13 +47,13 @@ public class UserController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") int id) {
+    public String deleteUser(@PathVariable("id") long id) {
         userService.delete(id);
         return "redirect:/users";
     }
 
     @PostMapping("/delete")
-    public String deleteUser2(@ModelAttribute("id") int id) {
+    public String deleteUser2(@ModelAttribute("id") long id) {
         userService.delete(id);
         return "redirect:users";
     }
@@ -65,6 +61,19 @@ public class UserController {
     @GetMapping("/loginAndRegistration")
     public String loginAndRegistration(){
         return "loginAndRegistration";
+    }
+
+    public User validateUser(User user){
+        if (user.getDateOfBirth() == null) {
+            user.setDateOfBirth("");
+        }
+        if (user.getRole() == null) {
+            user.setRole(Role.USER);
+        }
+        if (user.getPhoneNumber() == null){
+            user.setPhoneNumber("");
+        }
+        return user;
     }
 }
 

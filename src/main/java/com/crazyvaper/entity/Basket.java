@@ -14,8 +14,12 @@ public class Basket {
     @Column(name = "basket_id", nullable = false)
     private long id;
 
-    @OneToMany(targetEntity = Goods.class)
-    private Collection<Goods> goods = new ArrayList<>();
+    @OneToOne(optional=false,cascade=CascadeType.ALL, mappedBy="basket", targetEntity = Payment.class)
+    private Payment payment;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER, targetEntity = Goods.class)
+    @JoinColumn(name = "goods_id", referencedColumnName = "goods_id")
+    private List<Goods> goodsList = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -25,11 +29,19 @@ public class Basket {
         this.id = id;
     }
 
-    public Collection<Goods> getGoods() {
-        return goods;
+    public Payment getPayment() {
+        return payment;
     }
 
-    public void setGoods(Collection<Goods> goods) {
-        this.goods = goods;
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
+    public List<Goods> getGoodsList() {
+        return goodsList;
+    }
+
+    public void setGoodsList(List<Goods> goodsList) {
+        this.goodsList = goodsList;
     }
 }

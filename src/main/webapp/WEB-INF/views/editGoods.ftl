@@ -6,6 +6,7 @@
     <title>UserData</title>
 </head>
 <body class="container">
+<#include "templates/headerAdministrated.ftl">
 <#include "templates/header.ftl">
 
 <form action="/editGoods" method="post" name="goods" class="form-group">

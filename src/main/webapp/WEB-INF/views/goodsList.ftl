@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UserData</title>
+    <title>GoodsData</title>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body class="container">
+<#include "templates/headerAdministrated.ftl">
 <#include "templates/header.ftl">
 
 <h1>Goods list</h1>
+<#--<form action="/sort" method="post" name="goodsList">-->
+<#--<select>-->
+    <#--<option value="/sortGoodsByPrice">Sort by price</option>-->
+    <#--<option value="/sortGoodsByName">Sort by name</option>-->
+<#--</select>-->
+    <#--<input type="submit" value="Sort">-->
+<#--</form>-->
+
+<a href="/sortGoodsByPrice">Sort by price</a> | <a href="/sortGoodsByName">Sort by name</a>
         <table class="table table-striped">
         <tr id="nameOfColumns">
             <th>Id</th>
@@ -20,7 +30,7 @@
         <tr>
             <td><a href="/goods/${goods.id}">${goods.id}</a></td>
             <td>${goods.name}</td>
-            <td>${goods.price}</td>
+            <td>${goods.price}$</td>
             <td><a href="/deleteGoods/${goods.id}">Delete</a>
                 <a href="/editG/${goods.id}">Edit</a>
             </td>

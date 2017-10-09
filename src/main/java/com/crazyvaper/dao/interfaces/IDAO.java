@@ -6,13 +6,11 @@ import java.util.List;
 public interface IDAO<T> {
     void save(T emtity);
 
-    T getById(int id);
-
-    T getByName(String name);
+    T getById(long id);
 
     void update(T entity);
 
-    Collection<T> getAll();
+    List<T> getAll();
 
-    void delete(T entity);
+    void delete(long id);
 }

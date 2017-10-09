@@ -19,24 +19,26 @@ public class User {
     @Column(name = "user_id", nullable = false)
     private long id;
 
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
+    @Column(name = "dateOfBirth")
     private String dateOfBirth;
 
+    @Column(name = "phoneNumber")
     private String phoneNumber = "";
 
+    @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = Payment.class)
-    @JoinColumn(name = "customer_id")
+    @OneToMany(mappedBy="user", targetEntity = Payment.class, fetch=FetchType.EAGER)
     private List<Payment> payments = new ArrayList<>();
 
     public User() {

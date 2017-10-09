@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class paymentDaoImpl implements PaymentDao {
+public class PaymentDaoImpl implements PaymentDao {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -23,16 +23,9 @@ public class paymentDaoImpl implements PaymentDao {
     }
 
     @Override
-    public Payment getById(int id) {
-        return entityManager.createQuery("SELECT p FROM Payment p WHERE id=:id", Payment.class)
+    public Payment getById(long id) {
+        return entityManager.createQuery("SELECT p FROM Payment p WHERE p.id=:id", Payment.class)
                 .setParameter("id", id)
-                .getSingleResult();
-    }
-
-    @Override
-    public Payment getByName(String name) {
-        return entityManager.createQuery("SELECT p FROM Payment p WHERE name=:name", Payment.class)
-                .setParameter("name", name)
                 .getSingleResult();
     }
 
@@ -43,8 +36,9 @@ public class paymentDaoImpl implements PaymentDao {
     }
 
     @Override
-    public void delete(Payment entity) {
-        entityManager.remove(entity);
+    @Transactional
+    public void delete(long id) {
+        entityManager.remove(getById(id));
     }
 
     @Override

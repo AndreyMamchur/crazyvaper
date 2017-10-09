@@ -9,12 +9,17 @@
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
+
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">MyApp</a>
+            <a class="navbar-brand" href="/">HOME</a>
         </div>
         <ul class="nav navbar-nav navbar-left">
-            <li class="active"><a href="/users">Users</a></li>
-            <li class=""><a href="/goodsList">Goods</a></li>
+            <li class=""><a href="/ecigsList">E-CIGS</a></li>
+            <li class=""><a href="/eliquidList">E-LIQUID</a></li>
+            <li class=""><a href="/modsList">MODS</a></li>
+            <li class=""><a href="/atomizersList">ATOMIZERS</a></li>
+            <li class=""><a href="/accessoriesList">VAPE ACCESSORIES</a></li>
+            <li class=""><a href="/">BRANDS</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="/loginAndRegistration">Login please</a></li>

@@ -7,8 +7,8 @@
     <input title="Password" type="password" name="password" required/>
     <p>Phone Number</p>
     <input title="Phone Number" type="text" name="phoneNumber"/>
-    <p>Age</p>
-    <input title="Age" type="number" name="age"/>
+    <p>Date of Birth</p>
+    <input title="Date of Birth" type="text" name="dateOfBirth"/>
     <p>Role</p>
     <input title="Role" type="text" name="role"/>
     <input type="submit" title="OK" value="OK!"/>
