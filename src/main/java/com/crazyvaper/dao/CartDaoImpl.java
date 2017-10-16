@@ -1,43 +1,42 @@
 package com.crazyvaper.dao;
 
-import com.crazyvaper.dao.interfaces.BasketDao;
-import com.crazyvaper.entity.Basket;
+import com.crazyvaper.dao.interfaces.CartDao;
+import com.crazyvaper.entity.Cart;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.Collection;
 import java.util.List;
 
 @Repository
-public class BasketDaoImpl implements BasketDao {
+public class CartDaoImpl implements CartDao {
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
     @Transactional
-    public void save(Basket emtity) {
+    public void save(Cart emtity) {
         entityManager.persist(emtity);
     }
 
     @Override
-    public Basket getById(long id) {
-        return entityManager.createQuery("SELECT b FROM Basket b WHERE id=:id", Basket.class)
+    public Cart getById(long id) {
+        return entityManager.createQuery("SELECT c FROM Cart c WHERE c.id=:id", Cart.class)
                 .setParameter("id", id)
                 .getSingleResult();
     }
 
     @Override
     @Transactional
-    public void update(Basket entity) {
+    public void update(Cart entity) {
         entityManager.merge(entity);
     }
 
     @Override
-    public List<Basket> getAll() {
-        return entityManager.createQuery("SELECT b FROM Basket b", Basket.class).getResultList();
+    public List<Cart> getAll() {
+        return entityManager.createQuery("SELECT c FROM Cart c", Cart.class).getResultList();
     }
 
     @Override

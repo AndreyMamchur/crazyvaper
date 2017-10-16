@@ -28,7 +28,6 @@
             <td>${user.email}</td>
             <td><#if user.dateOfBirth??>${user.dateOfBirth}<#else> </#if></td>
             <td>${user.phoneNumber}</td>
-            <td><#if user.role??>${user.role}<#else> </#if></td>
             <td>${user.password}</td>
             <td><a href="/delete/${user.id}">Delete</a>
                 <a href="/edit/${user.id}">Edit</a>

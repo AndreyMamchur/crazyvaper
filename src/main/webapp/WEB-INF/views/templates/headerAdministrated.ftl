@@ -16,7 +16,7 @@
             <li class=""><a href="/users">USERS</a></li>
             <li class=""><a href="/goodsList">GOODS</a></li>
             <li class=""><a href="/paymentList">PAYMENTS</a></li>
-            <li class=""><a href="/basketList">BASKET</a></li>
+            <li class=""><a href="/cartList">CART</a></li>
         </ul>
     </div>
 

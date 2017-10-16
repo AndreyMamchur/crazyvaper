@@ -15,11 +15,11 @@
         <th width="20%">Id</th>
         <th width="80%">Goods</th>
     </tr>
-<#list basketList as basket>
+<#list cartList as cart>
     <tr>
-        <td width="20%"><a href="/basket/${basket.id}">${basket.id}</a>
+        <td width="20%"><a href="/cart/${cart.id}">${cart.id}</a>
         <td width="80%">
-            <#list basket.goodsList as goods>
+            <#list cart.goodsList as goods>
                 <table class="table", border="0">
                     <tr >
                         <td style="border-width: 0px;border:none none;" width="50%">${goods.name}</td>

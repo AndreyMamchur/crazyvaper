@@ -21,7 +21,7 @@
     </build>
     <packaging>war</packaging>
 
-    <name>firstTry</name>
+    <name>crazyvaper</name>
     <url>http://maven.apache.org</url>
 
     <properties>

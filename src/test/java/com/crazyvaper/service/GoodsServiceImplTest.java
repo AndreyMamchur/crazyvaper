@@ -3,6 +3,7 @@ package com.crazyvaper.service;
 import com.crazyvaper.config.JpaConfigTest;
 import com.crazyvaper.config.SpringConfig;
 import com.crazyvaper.entity.Goods;
+import com.crazyvaper.entity.TypeOfGoods;
 import com.crazyvaper.service.interfaces.GoodsService;
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -24,6 +25,8 @@ public class GoodsServiceImplTest extends TestCase {
         Goods goods = new Goods();
         goods.setName(name);
         goods.setPrice(1569);
+        goods.setBrands("Adidas");
+        goods.setTypeOfGoods(TypeOfGoods.ECIGS);
         return goods;
     }
 

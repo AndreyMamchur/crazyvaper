@@ -1,9 +1,9 @@
 package com.crazyvaper.service.interfaces;
 
+import com.crazyvaper.entity.Cart;
 import com.crazyvaper.entity.Goods;
 import com.crazyvaper.entity.TypeOfGoods;
 
-import java.util.Collection;
 import java.util.List;
 
 public interface GoodsService extends IService<Goods> {
@@ -15,4 +15,6 @@ public interface GoodsService extends IService<Goods> {
     List<Goods> sortByName(List<Goods> goodsList);
 
     List<Goods> getGoodsListByType(TypeOfGoods typeOfGoods);
+
+    Cart buyGoods (Goods goods);
 }

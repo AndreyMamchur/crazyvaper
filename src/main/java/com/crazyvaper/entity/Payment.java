@@ -1,11 +1,6 @@
 package com.crazyvaper.entity;
 
-import org.springframework.web.bind.annotation.Mapping;
-
 import javax.persistence.*;
-import java.nio.file.attribute.UserDefinedFileAttributeView;
-import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Table(name = "payment")
@@ -30,12 +25,12 @@ public class Payment {
     @Column(name = "status", nullable = false)
     private Status status = Status.WORKING;
 
-    @Column(name = "basket_id")
-    private long basketId;
+    @Column(name = "cart_id")
+    private long cartId;
 
     @OneToOne(optional=false)
-    @JoinColumn(name = "basket_id", referencedColumnName = "basket_id", insertable = false, updatable = false)
-    private Basket basket;
+    @JoinColumn(name = "cart_id", referencedColumnName = "cart_id", insertable = false, updatable = false)
+    private Cart cart;
 
     public long getId() {
         return id;
@@ -77,11 +72,11 @@ public class Payment {
         this.status = status;
     }
 
-    public Basket getBasket() {
-        return basket;
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setBasket(Basket basket) {
-        this.basket = basket;
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 }

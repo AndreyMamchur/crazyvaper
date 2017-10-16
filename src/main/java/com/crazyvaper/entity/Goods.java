@@ -2,7 +2,6 @@ package com.crazyvaper.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -40,7 +39,7 @@ public class Goods implements Comparable<Goods> {
     private Date updatedTime;
 
     @ManyToMany(mappedBy="goodsList",fetch=FetchType.EAGER)
-    private List<Basket> basketList;
+    private List<Cart> cartList;
 
     public String getColor() {
         return color;
@@ -90,12 +89,12 @@ public class Goods implements Comparable<Goods> {
         this.updatedTime = updatedTime;
     }
 
-    public List<Basket> getBasketList() {
-        return basketList;
+    public List<Cart> getCartList() {
+        return cartList;
     }
 
-    public void setBasketList(List<Basket> basketList) {
-        this.basketList = basketList;
+    public void setCartList(List<Cart> cartList) {
+        this.cartList = cartList;
     }
 
     public long getId() {

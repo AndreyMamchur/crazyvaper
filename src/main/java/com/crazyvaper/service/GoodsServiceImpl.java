@@ -1,13 +1,13 @@
 package com.crazyvaper.service;
 
 import com.crazyvaper.dao.interfaces.GoodsDao;
+import com.crazyvaper.entity.Cart;
 import com.crazyvaper.entity.Goods;
 import com.crazyvaper.entity.TypeOfGoods;
 import com.crazyvaper.service.interfaces.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -43,9 +43,9 @@ public class GoodsServiceImpl implements GoodsService {
     public List<Goods> sortByName(List<Goods> goodsList) {
         Collections.sort(goodsList, new Comparator<Goods>() {
             public int compare(Goods o1, Goods o2) {
-                if (o1.compareTo(o2) > 0) {
+                if ((o1.getName().compareTo(o2.getName())) < 0) {
                     return -1;
-                } else if (o1.compareTo(o2) < 0) {
+                } else if ((o1.getName().compareTo(o2.getName())) > 0) {
                     return 1;
                 } else {
                     return 0;
@@ -59,6 +59,12 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public List<Goods> getGoodsListByType(TypeOfGoods typeOfGoods) {
         return goodsDao.getGoodsListByType(typeOfGoods);
+    }
+
+    @Override
+    public Cart buyGoods(Goods goods) {
+        Cart cart = new Cart();
+        return null;
     }
 
     @Override

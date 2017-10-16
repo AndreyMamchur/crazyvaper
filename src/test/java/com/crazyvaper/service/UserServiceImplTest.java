@@ -2,7 +2,7 @@ package com.crazyvaper.service;
 
 import com.crazyvaper.config.JpaConfigTest;
 import com.crazyvaper.config.SpringConfig;
-import com.crazyvaper.entity.Role;
+import com.crazyvaper.entity.RoleEnum;
 import com.crazyvaper.entity.User;
 import com.crazyvaper.service.interfaces.UserService;
 import junit.framework.TestCase;
@@ -13,9 +13,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Collection;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {SpringConfig.class, JpaConfigTest.class})
@@ -47,7 +44,6 @@ public class UserServiceImplTest extends TestCase {
         assertEquals(user.getName(), userById.getName());
         assertEquals(user.getPassword(), userById.getPassword());
         userById.setPhoneNumber("0675235789");
-        userById.setRole(Role.SALESMANAGER);
         userService.update(userById);
         Collection<User> userList = userService.getAll();
         assertNotNull(userList);

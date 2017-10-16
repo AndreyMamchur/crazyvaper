@@ -1,12 +1,7 @@
 package com.crazyvaper.entity;
 
-import net.bytebuddy.implementation.bind.annotation.Default;
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import javax.persistence.Id;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,12 +26,11 @@ public class User {
     @Column(name = "phoneNumber")
     private String phoneNumber = "";
 
-    @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    private Role role = Role.USER;
-
     @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(nullable = false)
+    private int enabled = 1;
 
     @OneToMany(mappedBy="user", targetEntity = Payment.class, fetch=FetchType.EAGER)
     private List<Payment> payments = new ArrayList<>();
@@ -82,14 +76,6 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     public String getPassword() {

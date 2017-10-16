@@ -18,12 +18,11 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-    @GetMapping("/goods/{id}")
-    public String getGoods(@PathVariable("id") long id, Model model){
-        Goods goodsById = goodsService.getById(id);
-        model.addAttribute("goods", goodsById);
-        return "showGoods";
-    }
+//    @GetMapping("/{typeOfGoods}")
+//    public String sortGoodsByPrice(@PathVariable("typeOfGoods") TypeOfGoods typeOfGoods, Model model){
+//        model.addAttribute("goodsList", goodsService.sortByPrice(goodsService.getGoodsListByType(typeOfGoods)));
+//        return "asdfa";
+//    }
 
     @GetMapping("/goodsList")
     public String showAllGoods(Model model){
@@ -59,6 +58,13 @@ public class GoodsController {
     public String showAccessories(Model model){
         model.addAttribute("goodsList", goodsService.getGoodsListByType(TypeOfGoods.ACCESSORIES));
         return "accessoriesList";
+    }
+
+    @GetMapping("/goods/{id}")
+    public String getGoods(@PathVariable("id") long id, Model model){
+        Goods goodsById = goodsService.getById(id);
+        model.addAttribute("goods", goodsById);
+        return "showGoods";
     }
 
     @GetMapping("/goods")
@@ -111,6 +117,12 @@ public class GoodsController {
     public String sortGoods(Model model){
         model.addAttribute("goodsList", goodsService.sortByName(goodsService.getAll()));
         return "goodsList";
+    }
+
+    @PostMapping("/buyGoods")
+    public String buyGoods(@ModelAttribute("goods") Goods goods){
+        goodsService.buyGoods(goods);
+        return "showBasket";
     }
 
 }

@@ -10,7 +10,7 @@
     <p>Date of Birth</p>
     <input title="Date of Birth" type="text" name="dateOfBirth"/>
     <p>Role</p>
-    <input title="Role" type="text" name="role"/>
+    <input title="Role" type="text" name="roleEnum"/>
     <input type="submit" title="OK" value="OK!"/>
 </form>
 

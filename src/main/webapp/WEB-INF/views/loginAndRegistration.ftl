@@ -11,17 +11,17 @@
     <tr>
         <th>
             <legend>Log in</legend>
-            <form action="/login" method="post" name="user" class="form-group">
+            <form action="/loginAndRegistration" method="post" name="user" class="form-group">
                 <p>Email</p>
                 <input title="Email" type="email" name="email"/>
                 <p>Password</p>
                 <input title="Password" type="password" name="password"/>
-                <input type="submit" title="OK" value="OK!"/>
+                <input type="submit" value="Login"/>
             </form>
         </th>
         <th>
             <legend>Registration</legend>
-            <form action="/newUser" method="post" name="user" class="form-group">
+            <form action="/registrationUser" method="post" name="user" class="form-group">
                 <p>Name</p>
                 <input title="Name" type="text" name="name"/>
                 <p>Email</p>

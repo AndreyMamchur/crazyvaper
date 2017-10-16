@@ -30,10 +30,6 @@
             <td>${user.phoneNumber}</td>
         </tr>
         <tr>
-            <td>Role</td>
-            <td>${user.role}</td>
-        </tr>
-        <tr>
             <td>Password</td>
             <td>${user.password}</td>
         </tr>

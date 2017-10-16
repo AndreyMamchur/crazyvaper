@@ -15,7 +15,7 @@
     <input title="Email" type="text" name="email" value="${user.email}"/>
     <input title="Date of Birth" type="text" name="dateOfBirth" <#if user.dateOfBirth??>value="${user.dateOfBirth}"<#else> </#if>/>
     <input title="PhoneNumber" type="text" name="phoneNumber" <#if user.phoneNumber??>value="${user.phoneNumber}"<#else> </#if>/>
-    <input title="Role" type="text" name="role" <#if user.role??>value="${user.role}"<#else> </#if>/>
+    <input title="Role" type="text" name="roleEnum" <#if user.roleEnum??>value="${user.roleEnum}"<#else> </#if>/>
     <input title="Password" type="text" name="password" <#if user.password??>value="${user.password}"<#else> </#if>/>
     <#--<input title="Login" type="" name="login" value="${user.login}"/>-->
     <input type="submit" title="OK" value="Edit!"/>

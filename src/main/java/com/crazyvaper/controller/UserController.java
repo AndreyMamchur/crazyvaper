@@ -1,12 +1,14 @@
 package com.crazyvaper.controller;
 
-import com.crazyvaper.entity.Role;
+import com.crazyvaper.entity.RoleEnum;
 import com.crazyvaper.entity.User;
 import com.crazyvaper.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -63,17 +65,23 @@ public class UserController {
         return "loginAndRegistration";
     }
 
+    @PostMapping("/registrationUser")
+    public String registrationUser(@ModelAttribute User user) {
+        userService.save(validateUser(user));
+        return "redirect:index";
+    }
+
     public User validateUser(User user){
         if (user.getDateOfBirth() == null) {
             user.setDateOfBirth("");
         }
-        if (user.getRole() == null) {
-            user.setRole(Role.USER);
-        }
+
         if (user.getPhoneNumber() == null){
             user.setPhoneNumber("");
         }
         return user;
     }
+
+
 }
 
